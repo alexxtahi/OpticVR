@@ -537,6 +537,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR [Base]
       objectReference: {fileID: 0}
+    - target: {fileID: 6154547195843983942, guid: 43612955934c5984bbfa8dd702e672cd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154547195843983942, guid: 43612955934c5984bbfa8dd702e672cd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154547196716189325, guid: 43612955934c5984bbfa8dd702e672cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154547196716189325, guid: 43612955934c5984bbfa8dd702e672cd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43612955934c5984bbfa8dd702e672cd, type: 3}
 --- !u!43 &1063187324
@@ -1031,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3869672150423715687, guid: 221df043e75b8da4a874306a6a4d842d, type: 3}
       propertyPath: OnPointerDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Activate
+      value: InteractWithDoor
       objectReference: {fileID: 0}
     - target: {fileID: 3869672150423715687, guid: 221df043e75b8da4a874306a6a4d842d, type: 3}
       propertyPath: OnPointerDown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

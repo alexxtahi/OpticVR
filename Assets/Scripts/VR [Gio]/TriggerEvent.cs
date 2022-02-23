@@ -50,7 +50,7 @@ namespace Gio {
 
         public void PointerEnter() {
             if (state == 0 || state == 3) {
-                transform.LookAt(CustomCameraPointer.Instance.transform);
+                //transform.LookAt(CustomCameraPointer.Instance.transform);
                 print("Pointer enter");
                 OnPointerEnter.Invoke();
                 ps.Play();

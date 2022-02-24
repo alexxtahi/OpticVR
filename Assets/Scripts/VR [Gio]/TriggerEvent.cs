@@ -56,7 +56,7 @@ namespace Gio {
         public void PointerEnter() {
             if (state == 0 || state == 3) {
                 //transform.LookAt(CustomCameraPointer.Instance.transform);
-                print("Pointer enter");
+                //print("Pointer enter"); //debug
                 OnPointerEnter.Invoke();
                 //ps.Play();
                 //Debug.Log("GameObject Tag -> " + gameObject.tag); // Debug
@@ -72,7 +72,7 @@ namespace Gio {
         }
 
         public void PointerDown() {
-            print("Pointer down");
+            //print("Pointer down"); //debug
             OnPointerDown.Invoke();
             // Interaction with buttons
             if (gameObject.tag == "KeyboardButton")
@@ -82,7 +82,7 @@ namespace Gio {
         }
 
         public void PointerExit() {
-            print("Pointer exit");
+            //print("Pointer exit"); //debug
             OnPointerUp.Invoke();
             // Interaction with buttons
             if (gameObject.tag == "KeyboardButton")

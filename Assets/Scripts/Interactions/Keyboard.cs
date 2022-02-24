@@ -32,7 +32,8 @@ namespace OpticVR
         {
             Debug.Log("button " + buttonText.text + " pressed");
             // Call onClick event of this button
-            //button.onClick.Invoke();
+            button.onClick.Invoke();
+            // Erase/Display screen content
             if (buttonText.text == "Effacer")
                 Clear();
             else

@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OpticScene.unity
-    guid: cbf2828a2fc397643b2cef383cc820d2
-  - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: 34ddd06b86851d74694d943ee0cc1c0a
+  - enabled: 1
+    path: Assets/Scenes/OpticScene.unity
+    guid: cbf2828a2fc397643b2cef383cc820d2
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ef70db396aaae3740a77b6703c712dff, type: 2}

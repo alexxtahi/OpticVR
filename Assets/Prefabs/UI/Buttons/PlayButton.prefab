@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7149051299470343214}
   - component: {fileID: 2403962959613947039}
   m_Layer: 0
-  m_Name: StartButton
+  m_Name: PlayButton
   m_TagString: KeyboardButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

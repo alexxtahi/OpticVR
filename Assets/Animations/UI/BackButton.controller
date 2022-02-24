@@ -621,7 +621,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NextButton
+  m_Name: BackButton
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Normal
@@ -792,7 +792,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.023529412
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -811,7 +811,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6392157
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -830,7 +830,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.92941177
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -906,7 +906,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -925,7 +925,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -944,7 +944,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1071,7 +1071,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.023529412
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1090,7 +1090,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6392157
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1109,7 +1109,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.92941177
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1185,7 +1185,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1204,7 +1204,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1223,7 +1223,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.08235294
         inSlope: 0
         outSlope: 0
         tangentMode: 136

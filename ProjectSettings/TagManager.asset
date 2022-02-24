@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: HomeLayer
+    uniqueID: 667536177
+    locked: 0

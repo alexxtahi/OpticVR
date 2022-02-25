@@ -9,7 +9,7 @@ using UnityEngine;
 // Author (Discord): Gio#0753
 //-----------------------------------------------------------------------
 
-namespace Gio {
+namespace OpticVR {
     public class CustomCameraPointer : MonoBehaviour {
 
         static CustomCameraPointer instance = null;

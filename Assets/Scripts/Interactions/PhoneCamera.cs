@@ -90,7 +90,7 @@ namespace OpticVR
             //Encode to a PNG
             byte[] bytes = photo.EncodeToPNG();
             //Write out the PNG. Of course you have to substitute your_path for something sensible
-            File.WriteAllBytes("./" + "left_eye.png", bytes);
+            File.WriteAllBytes("your_path" + "left_eye.png", bytes);
         }
     }
 }

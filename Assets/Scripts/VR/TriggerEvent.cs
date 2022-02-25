@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using OpticVR; // Custom namespace
 
-namespace Gio {
+namespace OpticVR 
+{
     public class TriggerEvent : MonoBehaviour {
 
         [SerializeField] UnityEvent OnPointerEnter;

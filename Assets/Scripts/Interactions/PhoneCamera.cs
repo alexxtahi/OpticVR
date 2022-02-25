@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 namespace OpticVR
 {
@@ -21,6 +22,7 @@ namespace OpticVR
             {
                 defaultBackground = background.texture;
                 WebCamDevice[] devices = WebCamTexture.devices;
+                int multiplier = 4;
                 // If no camera available
                 if (devices.Length == 0)
                 {
@@ -31,7 +33,7 @@ namespace OpticVR
                 // Try to get the front camera in devices list
                 for (int i = 0; i < devices.Length; i++)
                 {
-                    frontCam = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
+                    frontCam = new WebCamTexture(devices[i].name, Screen.width*multiplier, Screen.height*multiplier);
                 }
                 // If no camera has detected
                 if (frontCam == null)
@@ -62,6 +64,33 @@ namespace OpticVR
 
             int orient = -frontCam.videoRotationAngle;
             background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
+        }
+
+        // Method to take a picture with camera
+        public void TakePhoto()
+        {
+            StartCoroutine(BuildImage());
+        }
+
+        public IEnumerator BuildImage()  // Start this Coroutine on some button click
+        {
+
+            // NOTE - you almost certainly have to do this here:
+
+            yield return new WaitForEndOfFrame();
+
+            // it's a rare case where the Unity doco is pretty clear,
+            // http://docs.unity3d.com/ScriptReference/WaitForEndOfFrame.html
+            // be sure to scroll down to the SECOND long example on that doco page 
+
+            Texture2D photo = new Texture2D(frontCam.width, frontCam.height);
+            photo.SetPixels(frontCam.GetPixels());
+            photo.Apply();
+
+            //Encode to a PNG
+            byte[] bytes = photo.EncodeToPNG();
+            //Write out the PNG. Of course you have to substitute your_path for something sensible
+            File.WriteAllBytes("./" + "left_eye.png", bytes);
         }
     }
 }

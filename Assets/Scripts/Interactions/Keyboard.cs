@@ -202,7 +202,7 @@ namespace OpticVR
             //Commencement nouvelle etape
             if (buttonText.text == "Commencer")
             {
-                Resclear();
+               Resclear();
                 string rog = "<color=red>" + myList[0] + "</color>" + myList[1] + myList[2] + myList[3];
                 textmesh.text = rog;
                 etat1 = true;
@@ -336,12 +336,8 @@ namespace OpticVR
                 int res = entre1 + entre2 + entre3 + entre4 + entre5 + entre6 + entre7 + entre8 + entre9 + entre10;
                 string resultat = res.ToString();
                 print(resultat);
-                resultatText.text = resultat;
+                resultatText.text = resultat+"/10";
                 etat1 = false;
-            }
-            else
-            {
-                Past();
             }
 
          
@@ -518,13 +514,10 @@ namespace OpticVR
                 string rog19 = myList9[0] + myList9[1] + myList9[2] + myList9[3] + myList9[4] + myList9[5] + myList9[6] + myList9[7] +
                 myList9[8] + myList9[9] + myList9[10] + myList9[11] + "<color=white>" + myList9[12] + "</color>" + myList9[13] + myList9[14];
                 textme8.text = rog19;
-                /*string rog20 = "<color=red>" + myList[0] + "</color>" + myList[1] + myList[2] + myList[3];
-                textmesh.text = rog20;*/
-                //entre10 = 1;
                 int res = entre1 + entre2 + entre3 + entre4 + entre5 + entre6 + entre7 + entre8 + entre9 + entre10;
                 string resultat = res.ToString();
                 print(resultat);
-                resultatText.text = resultat;
+                resultatText.text = resultat+"/10";
                 etat1 = false;
             }
 

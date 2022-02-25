@@ -8,8 +8,8 @@ namespace OpticVR
 {
     public class AcuityTest : MonoBehaviour
     {
-        bool isModalConfirmed;
-        public GameObject startModal;
+        static bool isModalConfirmed;
+        static public GameObject startModal;
         // Start is called before the first frame update
         void Start()
         {
@@ -31,12 +31,13 @@ namespace OpticVR
             SceneManager.LoadScene("OpticScene");
         }
 
-        public void ConfirmStartModal()
+        static public void ConfirmStartModal(bool confirmation)
         {
             // Code to start the acuity test simulator
-            Debug.Log("Acuity Test Has been confirmed !");
-            isModalConfirmed = true;
-            startModal.SetActive(false);
+            isModalConfirmed = confirmation;
+            startModal.SetActive(!confirmation);
+            MouseLook.canLookAround = confirmation;
         }
+
     }
 }

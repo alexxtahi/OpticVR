@@ -55,7 +55,7 @@ namespace OpticVR
         {
             get
             {
-                return XRGeneralSettings.Instance.Manager.isInitializationComplete;
+                return XRGeneralSettings.Instance != null ? XRGeneralSettings.Instance.Manager.isInitializationComplete : false;
             }
         }
 
@@ -91,7 +91,10 @@ namespace OpticVR
             if (isVrModeEnabled)
             {
                 if (Api.IsCloseButtonPressed)
+                {
                     ExitVR();
+                    AcuityTest.ConfirmStartModal(false);
+                }
 
                 if (Api.IsGearButtonPressed)
                     Api.Recenter();

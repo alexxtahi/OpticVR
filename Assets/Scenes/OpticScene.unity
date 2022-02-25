@@ -183,6 +183,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpticEnv
       objectReference: {fileID: 0}
+    - target: {fileID: 751233517140341620, guid: 18d816e112476a547877c0c1291a3347, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 751233517140341621, guid: 18d816e112476a547877c0c1291a3347, type: 3}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18d816e112476a547877c0c1291a3347, type: 3}
 --- !u!1 &961054566 stripped

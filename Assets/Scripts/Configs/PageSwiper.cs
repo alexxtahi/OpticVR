@@ -6,7 +6,7 @@ using TMPro;
 namespace OpticVR {
     public class PageSwiper : MonoBehaviour
     {
-        private Animator pageAnimator;
+        static private Animator pageAnimator;
         private TextMeshProUGUI debugger;
 
         void Awake()
@@ -22,7 +22,7 @@ namespace OpticVR {
 
         }
 
-        public void Swipe(string page)
+        static public void Swipe(string page)
         {
             pageAnimator.SetTrigger(page);
         }

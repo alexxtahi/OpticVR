@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +10,14 @@ namespace OpticVR
     {
         private Button button;
         private Button pass;
+        private Button mess;
+        private Button help;
         private TextMeshProUGUI buttonText;
-        private TextMeshProUGUI passText;
+        private TextMeshProUGUI butmesText;
+        private TextMeshProUGUI helpText;
         private TextMeshProUGUI screenText;
         private TextMeshProUGUI resultatText;
+        private TextMeshProUGUI messageText;
 
         public static int entre1 = 0;
         public static int entre2 = 0;
@@ -60,6 +64,10 @@ namespace OpticVR
 
         public TextMeshPro textmesh;
         public GameObject give0;
+        public GameObject give01;
+        public GameObject give02;
+        public GameObject move;
+        public GameObject move1;
         public static bool etat1 = false;
         public static bool etat2 = false;
         public static bool etat3 = false;
@@ -76,15 +84,19 @@ namespace OpticVR
         {
             button = gameObject.GetComponent<Button>();
             pass = gameObject.GetComponent<Button>();
+            mess = gameObject.GetComponent<Button>();
+            help = gameObject.GetComponent<Button>();
             buttonText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-            passText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+            butmesText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+            helpText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
             screenText = GameObject.Find("KeyboardScreenContent").GetComponent<TextMeshProUGUI>();
             resultatText = GameObject.Find("Result").GetComponent<TextMeshProUGUI>();
+            messageText = GameObject.Find("Messages").GetComponent<TextMeshProUGUI>();
 
 
-            //Changement Effectu� non fini
+            //Changement Effectué non fini
 
-            //Traitement premi�re ligne 
+            //Traitement première ligne 
 
             give0 = GameObject.Find("FP");
             textmesh = give0.GetComponent<TextMeshPro>();
@@ -96,7 +108,7 @@ namespace OpticVR
             }
 
 
-            //Traitement deuxi�me ligne
+            //Traitement deuxième ligne
 
             give1 = GameObject.Find("TOZ");
             textme = give1.GetComponent<TextMeshPro>();
@@ -106,7 +118,7 @@ namespace OpticVR
                 myList1.Add(items.ToString());
             }
 
-            //Traitement troisi�me ligne
+            //Traitement troisième ligne
             give2 = GameObject.Find("LPED");
             textme1 = give2.GetComponent<TextMeshPro>();
             string change2 = textme1.text;
@@ -115,7 +127,7 @@ namespace OpticVR
                 myList2.Add(item1.ToString());
             }
 
-            //Traitement quatri�me ligne
+            //Traitement quatrième ligne
             give3 = GameObject.Find("PECFED");
             textme2 = give3.GetComponent<TextMeshPro>();
             string change3 = textme2.text;
@@ -124,7 +136,7 @@ namespace OpticVR
                 myList3.Add(item2.ToString());
             }
 
-            //Traitement cinqui�me ligne
+            //Traitement cinquième ligne
             give4 = GameObject.Find("EDFCZP");
             textme3 = give4.GetComponent<TextMeshPro>();
             string change4 = textme3.text;
@@ -133,7 +145,7 @@ namespace OpticVR
                 myList4.Add(item3.ToString());
             }
 
-            //Traitement sixi�me ligne
+            //Traitement sixième ligne
             give5 = GameObject.Find("FELOPZD");
             textme4 = give5.GetComponent<TextMeshPro>();
             string change5 = textme4.text;
@@ -142,7 +154,7 @@ namespace OpticVR
                 myList5.Add(item4.ToString());
             }
 
-            //Traitement septi�me ligne
+            //Traitement septième ligne
             give6 = GameObject.Find("DEFPOTEC");
             textme5 = give6.GetComponent<TextMeshPro>();
             string change6 = textme5.text;
@@ -151,7 +163,7 @@ namespace OpticVR
                 myList6.Add(item5.ToString());
             }
 
-            //Traitement huiti�me ligne
+            //Traitement huitième ligne
             give7 = GameObject.Find("LEFOTPCD");
             textme6 = give7.GetComponent<TextMeshPro>();
             string change7 = textme6.text;
@@ -160,7 +172,7 @@ namespace OpticVR
                 myList7.Add(item6.ToString());
             }
 
-            //Traitement neuvi�me ligne
+            //Traitement neuvième ligne
             give8 = GameObject.Find("FDPLTCEO");
             textme7 = give8.GetComponent<TextMeshPro>();
             string change8 = textme7.text;
@@ -169,7 +181,7 @@ namespace OpticVR
                 myList8.Add(item7.ToString());
             }
 
-            //Traitement dixi�me
+            //Traitement dixième
             give9 = GameObject.Find("PEZO");
             textme8 = give9.GetComponent<TextMeshPro>();
             string change9 = textme8.text;
@@ -180,7 +192,7 @@ namespace OpticVR
 
 
 
-            //Fin Changement Effectu�
+            //Fin Changement Effectué
         }
         // Start is called before the first frame update
         void Start()
@@ -202,9 +214,10 @@ namespace OpticVR
             //Commencement nouvelle etape
             if (buttonText.text == "Commencer")
             {
-               Resclear();
+                Resclear();
                 string rog = "<color=red>" + myList[0] + "</color>" + myList[1] + myList[2] + myList[3];
                 textmesh.text = rog;
+                //buttonText.text = "F";
                 etat1 = true;
 
             }
@@ -350,10 +363,77 @@ namespace OpticVR
             else
                 Display();
         }
+        public void Message()
+        {
+            mess.onClick.Invoke();
+           
+
+
+            if (butmesText.text == "Aller")
+            {
+                Debug.Log("button " + messageText.text + " pressed");
+                butmesText.text = "Passer 1/3";
+
+                messageText.text = "Tout d'abord sachez que pour commencer vous avez qu'à cliquer sur le bouton vert muni d'un seul triangle.";
+            }
+            else if(butmesText.text== "Passer 1/3")
+            {
+                butmesText.text = "Passer 2/3";
+                messageText.text = "Vous verrez directement au tableau une lettre marqué de rouge, ce qui signifie que le test à débuter.";
+            }
+            else if(butmesText.text == "Passer 2/3")
+            {
+                butmesText.text = "Passer 3/3";
+                messageText.text = "Un clavier est mis à votre disposition pour le choix des lettres Ah... oui j'oubliais en haut à gauche sera afficher votre résultat à la fin du test.";
+
+
+            }
+            else if(butmesText.text == "Passer 3/3")
+            {
+                butmesText.text = "Fermer";
+                messageText.text = "Dernier point important vous n'êtes pas obligé de trouver forcément une lettre si vous êtes dans l'incapacité de la voir, vous n'avez qu'à mettre le curseur sur" +
+                    "le bouton vert muni de deux flêches pour passer 😁. ";
+
+            }
+            else if(butmesText.text == "Fermer")
+            {
+                Moue();
+                butmesText.text = "Passer 1/3";
+
+
+            }
+        }
+        public void Moue()
+        {
+            give01 = GameObject.Find("Message");
+            Debug.Log(give01.transform.position);
+            give01.transform.position = new Vector3(0.0f, 10.0f, 0.0f);
+
+        }
+        public void Reload()
+        {
+            help.onClick.Invoke();
+            if (helpText.text == "Retour")
+            {
+                Debug.Log("button " + helpText.text + " pressed");
+                butmesText.text = "Aller";
+                Message();
+
+                give01 = GameObject.Find("Message");
+                give01.transform.position = new Vector3(0.0f, 1.6f, -1.9f);
+
+            }
+        }
 
         public void Display()
         {
             screenText.text = buttonText.text;
+
+
+        }
+        public void Religth()
+        {
+            
         }
 
         public void Clear()
@@ -381,7 +461,7 @@ namespace OpticVR
             }
 
 
-            else if (screenText.text == "F" && etat1 == true)
+            else if (screenText.text == "F")
             {
                 etat1 = false;
                 string rog1 = "<color=white>" + myList[0] + "</color>" + myList[1] + myList[2] + myList[3];
@@ -394,7 +474,7 @@ namespace OpticVR
 
 
             }
-            else if (screenText.text == "O" && etat2 == true)
+            else if (screenText.text == "O" )
             {
                 etat2 = false;
                 string rog3 = myList1[0] + myList1[1] + myList1[2] + "<color=white>" + myList1[3] + "</color>" + myList1[4] + myList1[5] + myList1[6];
@@ -408,7 +488,7 @@ namespace OpticVR
 
 
             }
-            else if (screenText.text == "P" && etat3 == true)
+            else if (screenText.text == "P" )
             {
                 etat3 = false;
                 string rog5 = myList2[0] + myList2[1] + myList2[2] + "<color=white>" + myList2[3] + "</color>" + myList2[4] + myList2[5] + myList2[6] + myList2[7] + myList2[8] + myList2[9];
@@ -423,7 +503,7 @@ namespace OpticVR
 
 
             }
-            else if (screenText.text == "D" && etat4 == true)
+            else if (screenText.text == "D" )
             {
                 etat4 = false;
                 string rog7 = myList3[0] + myList3[1] + myList3[2] + myList3[3] + myList3[4] + myList3[5] + myList3[6] + myList3[7] +
@@ -438,7 +518,7 @@ namespace OpticVR
                 etat5 = true;
 
             }
-            else if (screenText.text == "E" && etat5 == true)
+            else if (screenText.text == "E" )
             {
                 etat5 = false;
                 string rog9 = "<color=white>" + myList4[0] + "</color>" + myList4[1] + myList4[2] + myList4[3] + myList4[4] + myList4[5] + myList4[6] + myList4[7] +
@@ -452,7 +532,7 @@ namespace OpticVR
                 etat6 = true;
 
             }
-            else if (screenText.text == "M" && etat6 == true)
+            else if (screenText.text == "M")
             {
                 etat6 = false;
                 string rog11 = myList5[0] + myList5[1] + myList5[2] + myList5[3] + myList5[4] + myList5[5] + "<color=white>" + myList5[6] + "</color>" + myList5[7] +
@@ -467,7 +547,7 @@ namespace OpticVR
                 etat7 = true;
 
             }
-            else if (screenText.text == "T" && etat7 == true)
+            else if (screenText.text == "T" )
             {
                 etat7 = false;
                 string rog13 = myList6[0] + myList6[1] + myList6[2] + myList6[3] + myList6[4] + myList6[5] + myList6[6] + myList6[7] +
@@ -480,7 +560,7 @@ namespace OpticVR
                 screenText.text = "L";
                 etat8 = true;
             }
-            else if (screenText.text == "L" && etat8 == true)
+            else if (screenText.text == "L")
             {
                 etat8 = false;
                 string rog15 = "<color=white>" + myList7[0] + "</color>" + myList7[1] + myList7[2] + myList7[3] + myList7[4] + myList7[5] + myList7[6] + myList7[7] +
@@ -495,7 +575,7 @@ namespace OpticVR
 
             }
 
-            else if (screenText.text == "Q" && etat9 == true)
+            else if (screenText.text == "Q")
             {
                 etat9 = false;
                 string rog17 = myList8[0] + myList8[1] + myList8[2] + myList8[3] + myList8[4] + myList8[5] + myList8[6] + myList8[7] +
@@ -508,7 +588,7 @@ namespace OpticVR
                 screenText.text = "X";
                 etat10 = true;
             }
-            else if (screenText.text == "X" && etat10 == true)
+            else if (screenText.text == "X")
             {
                 etat10 = false;
                 string rog19 = myList9[0] + myList9[1] + myList9[2] + myList9[3] + myList9[4] + myList9[5] + myList9[6] + myList9[7] +

@@ -55,7 +55,11 @@ namespace OpticVR
         {
             get
             {
-                return XRGeneralSettings.Instance != null ? XRGeneralSettings.Instance.Manager.isInitializationComplete : false;
+                // Code to run in Android platform
+                if (Application.platform == RuntimePlatform.Android)
+                    return XRGeneralSettings.Instance.Manager.isInitializationComplete;
+                else
+                    return XRGeneralSettings.Instance != null ? XRGeneralSettings.Instance.Manager.isInitializationComplete : false;
             }
         }
 
@@ -88,17 +92,16 @@ namespace OpticVR
         /// </summary>
         public void Update()
         {
-            if (isVrModeEnabled)
+            if (isVrModeEnabled && Application.platform == RuntimePlatform.Android)
             {
                 if (Api.IsCloseButtonPressed)
                 {
                     ExitVR();
                     AcuityTest.ConfirmStartModal(false);
                 }
-
-                if (Api.IsGearButtonPressed)
+                else if (Api.IsGearButtonPressed)
                     Api.Recenter();
-
+                // Refresh VR mode
                 Api.UpdateScreenParams();
             }
         }

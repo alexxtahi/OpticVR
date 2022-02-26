@@ -11,7 +11,7 @@ namespace OpticVR
         public Transform playerBody;
 
         float xRotation = 0f;
-        static public bool canLookAround = false;
+        static public bool canLookAround = true;
 
         /// <summary>
         /// Start is called before the first frame update

@@ -16,19 +16,20 @@ namespace OpticVR
         public RawImage background;
         public AspectRatioFitter fit;
 
-        private TextMeshProUGUI camDebugger;
+        //private TextMeshProUGUI camDebugger; //debug
         private TextMeshProUGUI stepViewer;
 
         public RawImage leftEyePic, leftEyeRender;
         public RawImage rightEyePic, rightEyeRender;
 
         List<Texture2D> photos;
+        public Texture2D emptyPic;
 
         public Button takePhotoBtn;
 
         private void Awake()
         {
-            camDebugger = GameObject.Find("CamDebugger").GetComponent<TextMeshProUGUI>();
+            //camDebugger = GameObject.Find("CamDebugger").GetComponent<TextMeshProUGUI>(); //debug
             stepViewer = GameObject.Find("StepViewer").GetComponent<TextMeshProUGUI>();
 
             leftEyePic = GameObject.Find("LeftEyePic").GetComponentInChildren<RawImage>();
@@ -89,6 +90,14 @@ namespace OpticVR
 
             int orient = -frontCam.videoRotationAngle;
             background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
+            
+            // Refresh step viewer
+            if (photos.Count == 0)
+                stepViewer.text = "Commencez avec l'oeil gauche";
+            else if (photos.Count == 1)
+                stepViewer.text = "Maintenant prenez l'oeil droit";
+            else if (photos.Count == 2)
+                stepViewer.text = "C'est fini !";
         }
 
         // Method to take a picture with camera
@@ -127,11 +136,12 @@ namespace OpticVR
                     //File.WriteAllBytes(Path.Combine(Application.persistentDataPath, "left_eye.png"), bytes);
                     string imgPath = GenerateFileName();
                     File.WriteAllBytes(imgPath, eyePic);
-                    camDebugger.text = "Photo enregistrée -> " + imgPath;
+                    //camDebugger.text = "Photo enregistrée -> " + imgPath; //debug
                 }
                 catch (System.Exception error)
                 {
-                    camDebugger.text = error.Message;
+                    //camDebugger.text = error.Message; //debug
+                    Debug.Log(error.Message);
                 }
             }
             else if (photos.Count == 2)
@@ -143,15 +153,9 @@ namespace OpticVR
         public void PreviewEyePic(Texture2D preview)
         {
             if (photos.Count == 1)
-            {
                 leftEyePic.texture = leftEyeRender.texture = preview;
-                stepViewer.text = "Maintenant prenez l'oeil droit";
-            }
             else if (photos.Count == 2)
-            {
                 rightEyePic.texture = rightEyeRender.texture = preview;
-                stepViewer.text = "C'est fini !";
-            }
         }
 
         public string GenerateFileName()
@@ -162,6 +166,12 @@ namespace OpticVR
             else if (photos.Count == 2)
                 imgPath = Path.Combine("/storage/emulated/0", "right_eye.png");
             return imgPath;
+        }
+
+        public void RetryPictureTaking()
+        {
+            photos.Clear();
+            leftEyePic.texture = leftEyeRender.texture = rightEyePic.texture = rightEyeRender.texture = emptyPic;
         }
     }
 }

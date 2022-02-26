@@ -47,21 +47,24 @@ public class CardboardStartup : MonoBehaviour
     /// </summary>
     public void Update()
     {
-        if (Api.IsGearButtonPressed)
+        if (Application.platform == RuntimePlatform.Android)
         {
-            Api.ScanDeviceParams();
-        }
+            if (Api.IsGearButtonPressed)
+            {
+                Api.Recenter();
+            }
 
-        if (Api.IsCloseButtonPressed)
-        {
-            Application.Quit();
-        }
+            if (Api.IsCloseButtonPressed)
+            {
+                Application.Quit();
+            }
 
-        if (Api.HasNewDeviceParams())
-        {
-            Api.ReloadDeviceParams();
+            if (Api.HasNewDeviceParams())
+            {
+                Api.ReloadDeviceParams();
+            }
+            // Refresh VR mode
+            Api.UpdateScreenParams();
         }
-
-        Api.UpdateScreenParams();
     }
 }

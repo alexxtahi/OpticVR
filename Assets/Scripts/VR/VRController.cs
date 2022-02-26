@@ -111,10 +111,13 @@ namespace OpticVR
         /// </summary>
         public void EnterVR()
         {
-            StartCoroutine(StartXR());
-            if (Api.HasNewDeviceParams())
+            if (Application.platform == RuntimePlatform.Android)
             {
-                Api.ReloadDeviceParams();
+                StartCoroutine(StartXR());
+                if (Api.HasNewDeviceParams())
+                {
+                    Api.ReloadDeviceParams();
+                }
             }
         }
 

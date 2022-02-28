@@ -97,6 +97,7 @@ namespace OpticVR
                 if (Api.IsCloseButtonPressed)
                 {
                     ExitVR();
+                    CustomCameraPointer.canInteract = false;
                     AcuityTest.ConfirmStartModal(false);
                 }
                 else if (Api.IsGearButtonPressed)

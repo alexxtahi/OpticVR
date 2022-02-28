@@ -92,7 +92,7 @@ namespace OpticVR
             screenText = GameObject.Find("KeyboardScreenContent").GetComponent<TextMeshProUGUI>();
             resultatText = GameObject.Find("Result").GetComponent<TextMeshProUGUI>();
             messageText = GameObject.Find("Messages").GetComponent<TextMeshProUGUI>();
-
+            give01 = GameObject.Find("Message");
 
             //Changement Effectué non fini
 
@@ -217,7 +217,6 @@ namespace OpticVR
                 Resclear();
                 string rog = "<color=red>" + myList[0] + "</color>" + myList[1] + myList[2] + myList[3];
                 textmesh.text = rog;
-                //buttonText.text = "F";
                 etat1 = true;
 
             }
@@ -366,48 +365,42 @@ namespace OpticVR
         public void Message()
         {
             mess.onClick.Invoke();
-           
-
 
             if (butmesText.text == "Aller")
             {
                 Debug.Log("button " + messageText.text + " pressed");
                 butmesText.text = "Passer 1/3";
 
-                messageText.text = "Tout d'abord sachez que pour commencer vous avez qu'à cliquer sur le bouton vert muni d'un seul triangle.";
+                messageText.text = "Pour commencer le test vous n'avez qu'à cliquer sur le bouton vert muni d'un seul triangle près du clavier.";
             }
             else if(butmesText.text== "Passer 1/3")
             {
                 butmesText.text = "Passer 2/3";
-                messageText.text = "Vous verrez directement au tableau une lettre marqué de rouge, ce qui signifie que le test à débuter.";
+                messageText.text = "Vous verrez directement au tableau une lettre colorée en rouge, ce qui signifie que le test à débuté.";
             }
             else if(butmesText.text == "Passer 2/3")
             {
                 butmesText.text = "Passer 3/3";
-                messageText.text = "Un clavier est mis à votre disposition pour le choix des lettres Ah... oui j'oubliais en haut à gauche sera afficher votre résultat à la fin du test.";
+                messageText.text = "Un clavier est mis à votre disposition pour le choix des lettres. Le résultat du test sera affiché sur l'écran à gauche à la fin du test.";
 
 
             }
             else if(butmesText.text == "Passer 3/3")
             {
                 butmesText.text = "Fermer";
-                messageText.text = "Dernier point important vous n'êtes pas obligé de trouver forcément une lettre si vous êtes dans l'incapacité de la voir, vous n'avez qu'à mettre le curseur sur" +
-                    "le bouton vert muni de deux flêches pour passer 😁. ";
-
+                messageText.text = "Si vous êtes dans l'incapacité de voir la lettre en surbrillance au tableau, vous n'avez qu'à mettre le curseur sur le bouton Passer.";
             }
             else if(butmesText.text == "Fermer")
             {
                 Moue();
                 butmesText.text = "Passer 1/3";
-
-
             }
         }
         public void Moue()
         {
-            give01 = GameObject.Find("Message");
             Debug.Log(give01.transform.position);
-            give01.transform.position = new Vector3(0.0f, 10.0f, 0.0f);
+            give01.SetActive(false);
+            //give01.transform.position = new Vector3(0.0f, 10.0f, 0.0f);
 
         }
         public void Reload()
@@ -419,8 +412,8 @@ namespace OpticVR
                 butmesText.text = "Aller";
                 Message();
 
-                give01 = GameObject.Find("Message");
-                give01.transform.position = new Vector3(0.0f, 1.6f, -1.9f);
+                give01.SetActive(true);
+                //give01.transform.position = new Vector3(0.0f, 1.6f, -1.9f);
 
             }
         }
@@ -428,8 +421,6 @@ namespace OpticVR
         public void Display()
         {
             screenText.text = buttonText.text;
-
-
         }
         public void Religth()
         {
@@ -442,7 +433,7 @@ namespace OpticVR
         }
         public void Resclear()
         {
-            resultatText.text = "En attente";
+            resultatText.text = "En attente...";
         }
 
         public void Past()

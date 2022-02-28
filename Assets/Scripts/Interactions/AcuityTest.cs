@@ -37,6 +37,7 @@ namespace OpticVR
             isModalConfirmed = confirmation;
             startModal.SetActive(!confirmation);
             MouseLook.canLookAround = confirmation;
+            CustomCameraPointer.canInteract = confirmation;
         }
 
     }

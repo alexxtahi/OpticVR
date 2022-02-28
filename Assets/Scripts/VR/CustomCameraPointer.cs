@@ -24,6 +24,7 @@ namespace OpticVR {
 
         private const float maxDistance = 10;
         TriggerEvent trigger = null;
+        static public bool canInteract = false;
 
         void Awake() {
             if (instance == null) {
@@ -31,32 +32,33 @@ namespace OpticVR {
             }
         }
 
-        void Update() {
+        void Update()
+        {
 
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, maxDistance)) {
+            if (canInteract)
+            {
+                if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, maxDistance))
+                {
 
-                TriggerEvent trigger = hit.transform.GetComponent<TriggerEvent>();
-                if (trigger != null && trigger != this.trigger) {
-                    this.trigger?.PointerExit();
-                    this.trigger = trigger;
-                    trigger.PointerEnter();
+                    TriggerEvent trigger = hit.transform.GetComponent<TriggerEvent>();
+                    if (trigger != null && trigger != this.trigger)
+                    {
+                        this.trigger?.PointerExit();
+                        this.trigger = trigger;
+                        trigger.PointerEnter();
+                    }
+                    if (trigger == null)
+                    {
+                        this.trigger?.PointerExit();
+                        this.trigger = null;
+                    }
                 }
-
-                if (trigger == null) {
-                    this.trigger?.PointerExit();
-                    this.trigger = null;
+                else
+                {
+                    // No GameObject detected in front of the camera.
+                    trigger?.PointerExit();
+                    trigger = null;
                 }
-
-
-            } else {
-                // No GameObject detected in front of the camera.
-                trigger?.PointerExit();
-                trigger = null;
-            }
-
-            // Checks for screen touches.
-            if (Google.XR.Cardboard.Api.IsTriggerPressed) {
-                trigger.PointerDown();
             }
         }
     }

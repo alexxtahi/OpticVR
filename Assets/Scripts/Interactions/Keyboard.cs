@@ -92,7 +92,7 @@ namespace OpticVR
             screenText = GameObject.Find("KeyboardScreenContent").GetComponent<TextMeshProUGUI>();
             resultatText = GameObject.Find("Result").GetComponent<TextMeshProUGUI>();
             messageText = GameObject.Find("Messages").GetComponent<TextMeshProUGUI>();
-            give01 = GameObject.Find("Message");
+            give01 = GameObject.Find("StartTipsBox");
 
             //Changement Effectué non fini
 

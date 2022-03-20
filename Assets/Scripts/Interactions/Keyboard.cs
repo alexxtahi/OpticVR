@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -79,6 +80,17 @@ namespace OpticVR
         public static bool etat9 = false;
         public static bool etat10 = false;
 
+        // System.Random random = new System.Random();
+        // private List<string> alphabet = new List<string>{
+        //     'A', 'B', 'C', 'D',
+        //     'E', 'F', 'G', 'H',
+        //     'I', 'J', 'K', 'L',
+        //     'M', 'N', 'O', 'P',
+        //     'Q', 'R', 'S', 'T',
+        //     'U', 'V', 'W', 'X',
+        //     'Y', 'Z',
+        // };
+
 
         private void Awake()
         {
@@ -96,7 +108,7 @@ namespace OpticVR
 
             //Changement Effectué non fini
 
-            //Traitement première ligne 
+            //Traitement première ligne
 
             give0 = GameObject.Find("FP");
             textmesh = give0.GetComponent<TextMeshPro>();
@@ -214,7 +226,7 @@ namespace OpticVR
             //Commencement nouvelle etape
             if (buttonText.text == "Commencer")
             {
-                Resclear();
+                ResetResult();
                 string rog = "<color=red>" + myList[0] + "</color>" + myList[1] + myList[2] + myList[3];
                 textmesh.text = rog;
                 etat1 = true;
@@ -431,7 +443,7 @@ namespace OpticVR
         {
             screenText.text = "En attente...";
         }
-        public void Resclear()
+        public void ResetResult()
         {
             resultatText.text = "En attente...";
         }
@@ -442,7 +454,7 @@ namespace OpticVR
 
             if (screenText.text == "Commencer")
             {
-                Resclear();
+                ResetResult();
                 string rog = "<color=red>" + myList[0] + "</color>" + myList[1] + myList[2] + myList[3];
                 textmesh.text = rog;
                 screenText.text = "F";
